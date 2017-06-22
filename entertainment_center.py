@@ -3,6 +3,7 @@
 from media import Movie
 
 def get_movies():
+    """Returns a list containing your favorite movies"""
     movies = []
     add_movie(movies,
               "Toy Story 3",
@@ -15,5 +16,6 @@ def get_movies():
     return movies
 
 def add_movie(movies, title, poster_image_url, trailer_youtube_url):
+    """This is a helper function to add movies to the list"""
     movie = Movie(title, poster_image_url, trailer_youtube_url)
     movies.append(movie)

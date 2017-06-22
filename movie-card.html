@@ -1,0 +1,29 @@
+<script defer src="movie-card.js"></script>
+
+<template id="movie-card">
+    <style>
+        :host {
+            font-family: 'roboto slab';
+            font-size: 2em;
+            color: peru;
+            text-align: center;
+            cursor: default;
+        }
+        .hide {
+            visibility: hidden;
+        }
+        .card {
+            width: 295px;
+            height: 460px;
+            background-color: steelblue;
+        }
+        .space {
+            background-color: transparent;
+        }
+    </style>
+    <div class="card">
+        <strong id="title"></strong>
+        <img alt="Movie Poster">
+    </div>
+    
+</template>
