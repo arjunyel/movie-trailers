@@ -20,7 +20,7 @@ class MovieCard extends HTMLElement {
              const title = this.getNode("title");
              if (title) {
                  // The next line uses getAttribute instead of the t variable to allow concurrent access to the DOM
-                 title.textContent = this.getAttribute("t");
+                 title.innerHTML = this.getAttribute("t") as string;
              }
          } else {
              this.removeAttribute("value");
@@ -34,7 +34,7 @@ class MovieCard extends HTMLElement {
         shadowRoot.appendChild(t.content.cloneNode(true));
     }
 
-    private getNode(id: string): HTMLElement|null {
+    private getNode(id: string) {
         const shadow = this.shadowRoot as ShadowRoot;
         return shadow.getElementById(id);
     }

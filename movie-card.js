@@ -15,7 +15,7 @@ class MovieCard extends HTMLElement {
             this.setAttribute("title", t);
             const title = this.getNode("title");
             if (title) {
-                title.textContent = this.getAttribute("t");
+                title.innerHTML = this.getAttribute("t");
             }
         }
         else {
