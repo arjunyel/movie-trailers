@@ -10,7 +10,7 @@ class MovieCard extends HTMLElement {
     }
 
     get oberservedAttributes() {
-         return ["title", "poster_image_url", "trailer_youtube_url"];
+         return ["title", "poster", "trailer"];
      }
 
     public get title(): string {
@@ -34,7 +34,26 @@ class MovieCard extends HTMLElement {
          }
      }
 
+    public get poster(): string {
+        const poster = this.getAttribute("poster");
+        if (poster) {
+            return poster;
+        }
+        return "";
+    }
 
+    public set poster(p: string) {
+         if (p) {
+             this.setAttribute("poster", p);
+             const poster = this.getNode("#picture") as HTMLImageElement || null;
+             if (poster) {
+                 // The next line uses getAttribute instead of the t variable to allow concurrent access to the DOM
+                 poster.src  = this.getAttribute("poster") as string;
+             }
+         } else {
+             this.removeAttribute("poster");
+         }
+     }
 
     private getNode(id: string) {
         const shadow = this.shadowRoot as ShadowRoot;
@@ -44,13 +63,16 @@ class MovieCard extends HTMLElement {
     private attributeChangedCallback(attr: string, oldVal: string, newVal: string) {
         if (attr === "title") {
             this.title = newVal;
-        } else {
+        } else if (attr === "poster") {
+            this.poster = newVal;
+        } else if () {
             console.log(newVal);
         }
     }
 
     private connectedCallback() {
         this.title = this.getAttribute("title") as string;
+        this.poster = this.getAttribute("poster") as string;
     }
 }
 

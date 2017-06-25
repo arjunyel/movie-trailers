@@ -1,8 +1,7 @@
 {
     "compilerOptions": {
         "target": "es6",
-        "strict": true,
-        "removeComments": true
+        "strict": true
     },
     "files": [
         "./movie-card.ts"
