@@ -24,7 +24,7 @@ class MovieCard extends HTMLElement {
     public set title(t: string) {
          if (t) {
              this.setAttribute("title", t);
-             const title = this.getNode("#movie");
+             const title = this.__getNode("#movie");
              if (title) {
                  // The next line uses getAttribute instead of the t variable to allow concurrent access to the DOM
                  title.textContent = this.getAttribute("title") as string;
@@ -45,7 +45,7 @@ class MovieCard extends HTMLElement {
     public set poster(p: string) {
          if (p) {
              this.setAttribute("poster", p);
-             const poster = this.getNode("#picture") as HTMLImageElement || null;
+             const poster = this.__getNode("#picture") as HTMLImageElement || null;
              if (poster) {
                  // The next line uses getAttribute instead of the t variable to allow concurrent access to the DOM
                  poster.src  = this.getAttribute("poster") as string;
@@ -55,7 +55,23 @@ class MovieCard extends HTMLElement {
          }
      }
 
-    private getNode(id: string) {
+    public get youtube(): string {
+        const youtube = this.getAttribute("youtube");
+        if (youtube) {
+            return youtube;
+        }
+        return "";
+    }
+
+    public set youtube(y: string) {
+         if (y) {
+             this.setAttribute("youtube", y);
+         } else {
+             this.removeAttribute("youtube");
+         }
+     }
+
+    private __getNode(id: string) {
         const shadow = this.shadowRoot as ShadowRoot;
         return shadow.querySelector(id);
     }
@@ -65,14 +81,15 @@ class MovieCard extends HTMLElement {
             this.title = newVal;
         } else if (attr === "poster") {
             this.poster = newVal;
-        } else if () {
-            console.log(newVal);
+        } else if (attr === "youtube") {
+            this.youtube = newVal;
         }
     }
 
     private connectedCallback() {
         this.title = this.getAttribute("title") as string;
         this.poster = this.getAttribute("poster") as string;
+        this.youtube = this.getAttribute("youtube") as string;
     }
 }
 
