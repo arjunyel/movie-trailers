@@ -21,7 +21,7 @@ def add_movies(movies, titles):
         movie = json.loads(conn.getresponse().read().decode('utf8'))
         if not movie['results']:
             print(title + " not found!")
-            break
+            continue
         movieid = str(movie['results'][0]['id'])
 
         query = "/3/movie/"+movieid+"/videos?language=en-US&api_key="+TMDB_KEY
