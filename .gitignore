@@ -1,3 +1,4 @@
 *.log
 fresh_tomatoes.html
 __pycache__
+.vscode

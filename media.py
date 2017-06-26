@@ -5,10 +5,10 @@ class Movie:
 
     Attributes:
         title (str): The movie title.
-        poster_image_url (str): The URL of the poster image.
-        trailer_youtube_url (str): The Youtube URL of the trailer.
+        poster (str): The URL of the poster image.
+        youtube (str): The Youtube URL of the trailer.
     """
-    def __init__(self, title, poster_image_url, trailer_youtube_url):
+    def __init__(self, title, poster, youtube):
         self.title = title
-        self.poster_image_url = poster_image_url
-        self.trailer_youtube_url = trailer_youtube_url
+        self.poster = poster
+        self.youtube = youtube
