@@ -4,7 +4,6 @@
         "strict": true
     },
     "files": [
-        "./movie-card.ts",
-        "./test.ts"
+        "./movie-card.ts"
     ]
 }
