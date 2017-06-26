@@ -5,7 +5,7 @@ from media import Movie
 from key import TMDB_KEY
 
 def get_movies():
-    """Returns a list containing your favorite movies"""
+    """Reads movies.txt and returns a list containing your favorite movies"""
     movies = []
     titles = open("movies.txt").read().splitlines()
     return add_movies(movies, titles)
