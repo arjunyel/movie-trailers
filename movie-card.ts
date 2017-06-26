@@ -10,7 +10,7 @@ class MovieCard extends HTMLElement {
     }
 
     get oberservedAttributes() {
-         return ["title", "poster", "trailer"];
+         return ["title", "poster", "youtube"];
      }
 
     public get title(): string {

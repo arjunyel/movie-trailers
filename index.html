@@ -10,8 +10,11 @@
         <movie-card title="yo world!" poster="https://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg"></movie-card>
         <movie-card title="Goodbye world!"></movie-card>
         <script>
-            const movies = document.getElementsByTagName("movie-card");
-            
+            "use strict";
+            const movies = document.querySelectorAll("movie-card");
+            for (const m of movies) {
+                console.log(m.title);
+            }
         </script>
     </body>
 </html>
