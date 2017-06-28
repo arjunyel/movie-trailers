@@ -5,16 +5,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="import" href="movie-card.html">
+        <style>
+            .container {
+                display: grid;
+                grid-gap: 10px;
+		grid-template-columns: repeat(3, 350px);
+            }
+        </style>
     </head>
     <body>
-        <movie-card title="yo world!" poster="https://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg"></movie-card>
-        <movie-card title="Goodbye world!"></movie-card>
-        <script>
-            "use strict";
-            const movies = document.querySelectorAll("movie-card");
-            for (const m of movies) {
-                console.log(m.title);
-            }
-        </script>
+        <div class="container">
+            <movie-card title="Toy Story" poster="https://image.tmdb.org/t/p/w185/rhIRbceoE9lR4veEXuwCC2wARtG.jpg" youtube="tN1A2mVnrOM"></movie-card>
+            <movie-card title="Finding Nemo" poster="https://image.tmdb.org/t/p/w185/syPWyeeqzTQIxjIUaIFI7d0TyEY.jpg" youtube="SPHfeNgogVs"></movie-card>
+            <movie-card title="Shrek" poster="https://image.tmdb.org/t/p/w185/140ewbWv8qHStD3mlBDvvGd0Zvu.jpg" youtube="W37DlG1i61s"></movie-card>
+            <movie-card title="The Lord of the Rings: The Two Towers" poster="https://image.tmdb.org/t/p/w185/wf3v0Pn09jnT5HSaYal7Ami3bdA.jpg" youtube="LbfMDwc4azU"></movie-card>
+        </div>
+        
     </body>
 </html>

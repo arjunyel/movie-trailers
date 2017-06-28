@@ -1,15 +1,16 @@
 "use strict";
 // <movie-card></movie-card>
+const importedDoc = document.currentScript.ownerDocument;
 class MovieCard extends HTMLElement {
     // title, poster_image_url, trailer_youtube_url
     constructor() {
         super(); // always call super() first in the ctor.
-        const t = document.currentScript.ownerDocument.getElementById("movie-card");
+        const t = importedDoc.getElementById("movie-card");
         const shadowRoot = this.attachShadow({ mode: "open" });
         shadowRoot.appendChild(t.content.cloneNode(true));
     }
     get oberservedAttributes() {
-        return ["title", "poster", "trailer"];
+        return ["title", "poster", "youtube"];
     }
     get title() {
         const title = this.getAttribute("title");

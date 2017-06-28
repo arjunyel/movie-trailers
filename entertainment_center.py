@@ -12,6 +12,9 @@ def get_movies():
 
 def add_movies(movies, titles):
     """This is a helper function to search for creating a Movie object using an api then appending it to the list"""
+    if TMDB_KEY == "INSERT_API_KEY":
+        print("Please use a valid api key!")
+        exit()
     conn = http.client.HTTPSConnection("api.themoviedb.org")
     payload = "{}"
     for title in titles:

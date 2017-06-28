@@ -13,25 +13,19 @@
             visibility: hidden;
         }
         .card {
-            width: 315px;
-            height: 510px;
-            background-color: steelblue;
-        }
-        .space {
-            background-color: transparent;
-        }
-        div {
-            margin: 5px;
-        }
-
-        img {
-            width: 220px; 
-            height: 342px;
+            width: 280px;
+            height: 350px;
+            background-color: #fff;
+            padding-top: 5px;
+            margin: 15px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         }
     </style>
     <div class="card">
-        <p id="movie">Hello!</p>
-        <img id="picture" alt="Movie Poster">
+        <figure>
+            <img id="picture" alt="Movie Poster" width="185">
+            <figcaption id="movie"></figcaption>
+        </figure>
     </div>
     
 </template>
