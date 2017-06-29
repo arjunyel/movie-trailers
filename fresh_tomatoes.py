@@ -1,4 +1,9 @@
+"""Generate static index.html"""
+from entertainment_center import get_movies
 
+
+# Styles and scripting for the page
+MAIN_PAGE_HEAD = '''
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -71,7 +76,11 @@
             }
         </style>
     </head>
+'''
 
+
+# The main page layout and title bar
+MAIN_PAGE_CONTENT = '''
     <body>
         <header class="header">
             <h2>Fresh Tomatoes</h2>
@@ -82,23 +91,7 @@
             <iframe id="embed"></iframe>
         </dialog>
         <div class="container">
-            
-<movie-card title="Toy Story" poster="https://image.tmdb.org/t/p/w185/rhIRbceoE9lR4veEXuwCC2wARtG.jpg" youtube="tN1A2mVnrOM"></movie-card>
-
-<movie-card title="Finding Nemo" poster="https://image.tmdb.org/t/p/w185/syPWyeeqzTQIxjIUaIFI7d0TyEY.jpg" youtube="SPHfeNgogVs"></movie-card>
-
-<movie-card title="Shrek" poster="https://image.tmdb.org/t/p/w185/140ewbWv8qHStD3mlBDvvGd0Zvu.jpg" youtube="W37DlG1i61s"></movie-card>
-
-<movie-card title="War Dogs" poster="https://image.tmdb.org/t/p/w185/hmNzppVQq9Qj8Ai8bLIseB5gY51.jpg" youtube="Rwh9c_E3dJk"></movie-card>
-
-<movie-card title="Children of Men" poster="https://image.tmdb.org/t/p/w185/gZ6i32Da76EUxta06GL2BxpC4Cn.jpg" youtube="2VT2apoX90o"></movie-card>
-
-<movie-card title="The Godfather" poster="https://image.tmdb.org/t/p/w185/rPdtLWNsZmAtoZl9PK7S2wE3qiS.jpg" youtube="fBNpSRtfIUA"></movie-card>
-
-<movie-card title="Forrest Gump" poster="https://image.tmdb.org/t/p/w185/yE5d3BUhE8hCnkMUJOo1QDoOGNz.jpg" youtube="bLvqoHBptjg"></movie-card>
-
-<movie-card title="The Matrix" poster="https://image.tmdb.org/t/p/w185/lZpWprJqbIFpEV5uoHfoK0KCnTW.jpg" youtube="m8e-FF8MsqU"></movie-card>
-
+            {movie_tiles}
         </div>
         <footer>
             <figure>
@@ -108,3 +101,40 @@
         </footer>
     </body>
 </html>
+'''
+
+
+# A single movie entry html template
+MOVIE_TILE_CONTENT = '''
+<movie-card title="{title}" poster="{poster}" youtube="{youtube}"></movie-card>
+'''
+
+def create_movie_tiles_content(movies):
+    """Generate the <movie-tile> elements"""
+    content = '' # The HTML content for this section of the page
+    for movie in movies:
+        # Append the card for the movie with its content filled in
+        content += MOVIE_TILE_CONTENT.format(
+            title=movie.title,
+            poster=movie.poster,
+            youtube=movie.youtube,
+        )
+    return content
+
+
+def open_movies_page(movies):
+    """Create index.html"""
+    # Create or overwrite the output file
+    output_file = open('index.html', 'w')
+
+    # Replace the movie tiles placeholder generated content
+    rendered_content = MAIN_PAGE_CONTENT.format(
+        movie_tiles=create_movie_tiles_content(movies))
+
+    # Output the file
+    output_file.write(MAIN_PAGE_HEAD + rendered_content)
+    output_file.close()
+
+
+MOVIES = get_movies()
+open_movies_page(MOVIES)

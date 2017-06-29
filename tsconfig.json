@@ -5,6 +5,6 @@
     },
     "files": [
         "./movie-card.ts",
-        "test.ts"
+        "youtube.ts"
     ]
 }
