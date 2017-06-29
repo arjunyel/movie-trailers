@@ -19,6 +19,11 @@ MAIN_PAGE_HEAD = '''
         <script defer src="youtube.js"></script>
 
         <style>
+            :root {
+                --text-color: peru;
+                --card-color: #fff;
+            }
+
             body {
                 background: #E1E2E1;
             }
