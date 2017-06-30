@@ -15,7 +15,10 @@ MAIN_PAGE_HEAD = '''
         <!-- See https://goo.gl/qRE0vM -->
         <meta name="theme-color" content="#660000">
 
+        <!--Import our Web Component -->
         <link rel="import" href="movie-card.html">
+
+        <!--setup our event listeners-->
         <script defer src="youtube.js"></script>
 
         <style>
