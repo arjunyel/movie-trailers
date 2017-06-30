@@ -1,4 +1,8 @@
-"""Generate static index.html"""
+"""
+Generate static index.html
+
+Modified from https://github.com/adarsh0806/ud036_StarterCode/blob/master/fresh_tomatoes.py
+"""
 from entertainment_center import get_movies
 
 
@@ -15,10 +19,10 @@ MAIN_PAGE_HEAD = '''
         <!-- See https://goo.gl/qRE0vM -->
         <meta name="theme-color" content="#660000">
 
-        <!--Import our Web Component -->
+        <!-- Import our Web Component -->
         <link rel="import" href="movie-card.html">
 
-        <!--setup our event listeners-->
+        <!-- Setup our event listeners -->
         <script defer src="youtube.js"></script>
 
         <style>
@@ -30,6 +34,7 @@ MAIN_PAGE_HEAD = '''
             body {
                 background: #E1E2E1;
             }
+
             .container {
                 padding-top: 60px;
                 display: grid;
@@ -93,13 +98,12 @@ MAIN_PAGE_CONTENT = '''
         <header class="header">
             <h2>Fresh Tomatoes</h2>
         </header>
-        
         <noscript>This site requires Javascript</noscript>
-        <dialog id="modal">
+        <dialog id="modal"> <!-- Modal that we add youtube iframe to -->
             <iframe id="embed"></iframe>
         </dialog>
-        <div class="container">
-            {movie_tiles}
+        <div class="container">  <!-- This container uses CSS Gride to arrange its children -->
+            {movie_tiles} <!-- Output generated <movie-card>'s here -->
         </div>
         <footer>
             <figure>
@@ -112,7 +116,7 @@ MAIN_PAGE_CONTENT = '''
 '''
 
 
-# A single movie entry html template
+# Generate a <movie-card> component with our data
 MOVIE_TILE_CONTENT = '''
 <movie-card title="{title}" poster="{poster}" youtube="{youtube}"></movie-card>
 '''
@@ -144,5 +148,5 @@ def open_movies_page(movies):
     output_file.close()
 
 
-MOVIES = get_movies()
-open_movies_page(MOVIES)
+MOVIES = get_movies() # Get a list of our favorite movies from movies.txt
+open_movies_page(MOVIES) # Generate a website from the list
