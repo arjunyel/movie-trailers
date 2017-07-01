@@ -1,35 +1,33 @@
-const click = (e: Event) => {
-    const youtube = e.target as MovieCard;
-    if (youtube.youtube) { // If the event target has a youtube property
-        const embed = document.getElementById("embed") as HTMLIFrameElement | null;
-        if (embed) { // Check if iframe exits
+"use strict";
+const click = (e) => {
+    const youtube = e.target;
+    if (youtube.youtube) {
+        const embed = document.getElementById("embed");
+        if (embed) {
             embed.textContent = ""; // Clear out iframe
             const srcUrl = "http://www.youtube.com/embed/" + youtube + "?autoplay=1&html5=1";
             embed.frameBorder = "0";
             embed.src = srcUrl; // Add the youtube src to the iframe
         }
-        const modal = document.getElementById("modal") as HTMLDialogElement;
+        const modal = document.getElementById("modal");
         if (modal) {
             modal.showModal(); // Use the modal feature of the <dialog> tag
         }
     }
 };
-
-const closeModal = (e: Event) => {
+const closeModal = (e) => {
     // When closing the modal, destory the iframe and create a new one
-    const target = e.target as HTMLDialogElement;
+    const target = e.target;
     target.innerHTML = "";
     const iframe = document.createElement("iframe");
     iframe.id = "embed";
     target.appendChild(iframe);
 };
-
-const container = document.querySelector(".container") as HTMLDivElement | null;
+const container = document.querySelector(".container");
 if (container) {
     container.addEventListener("click", click, false);
 }
-
-const modal = document.getElementById("modal") as HTMLDialogElement | null;
+const modal = document.getElementById("modal");
 if (modal) {
     modal.addEventListener("cancel", closeModal, false);
 }

@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "target": "es6",
-        "strict": true
+        "strict": true,
+        "outDir": "generated"
     },
     "files": [
         "./movie-card.ts",

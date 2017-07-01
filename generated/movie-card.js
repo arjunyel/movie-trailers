@@ -2,12 +2,12 @@
 // <movie-card></movie-card>
 const importedDoc = document.currentScript.ownerDocument;
 class MovieCard extends HTMLElement {
-    // title, poster_image_url, trailer_youtube_url
+    // This is a reusable movie card web component https://www.webcomponents.org/introduction
     constructor() {
         super(); // always call super() first in the ctor.
         const t = importedDoc.getElementById("movie-card");
-        const shadowRoot = this.attachShadow({ mode: "open" });
-        shadowRoot.appendChild(t.content.cloneNode(true));
+        const shadowRoot = this.attachShadow({ mode: "open" }); // Open shadow root
+        shadowRoot.appendChild(t.content.cloneNode(true)); // Append movie-card.html to the shadow root
     }
     get oberservedAttributes() {
         return ["title", "poster", "youtube"];
@@ -68,6 +68,7 @@ class MovieCard extends HTMLElement {
         }
     }
     __getNode(id) {
+        // This is a helper function that returns the element (by id) or null
         const shadow = this.shadowRoot;
         return shadow.querySelector(id);
     }
@@ -83,6 +84,7 @@ class MovieCard extends HTMLElement {
         }
     }
     connectedCallback() {
+        // Take our inital settings and apply them
         this.title = this.getAttribute("title");
         this.poster = this.getAttribute("poster");
         this.youtube = this.getAttribute("youtube");
