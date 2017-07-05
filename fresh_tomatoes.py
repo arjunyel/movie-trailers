@@ -17,18 +17,19 @@ MAIN_PAGE_HEAD = '''
         <link rel="icon" href="favicon.ico">
 
         <!-- See https://goo.gl/qRE0vM -->
-        <meta name="theme-color" content="#660000">
+        <meta name="theme-color" content="#ff6347">
 
         <!-- Import our Web Component -->
         <link rel="import" href="movie-card.html">
 
-        <!-- Setup our event listeners -->
+        <!-- Setup our event listeners after HTML is parsed -->
         <script defer src="youtube.js"></script>
 
         <style>
             :root {
                 --text-color: peru;
                 --card-color: #fff;
+                --header-color: #ff6347;
             }
 
             body {
@@ -47,12 +48,12 @@ MAIN_PAGE_HEAD = '''
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                position: absolute;
+                position: fixed;
                 width: 100%;
                 height: 50px;
                 top: 0px;
                 left: 0px;
-                background: #616161;
+                background: var(--header-color, #ff6347);
                 color: white;
                 text-align: center;
             }

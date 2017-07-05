@@ -1,11 +1,11 @@
 "use strict";
 const click = (e) => {
-    const youtube = e.target;
-    if (youtube.youtube) {
+    const clicked = e.target;
+    if (clicked.youtube) {
         const embed = document.getElementById("embed");
         if (embed) {
             embed.textContent = ""; // Clear out iframe
-            const srcUrl = "http://www.youtube.com/embed/" + youtube + "?autoplay=1&html5=1";
+            const srcUrl = "http://www.youtube.com/embed/" + clicked.youtube + "?autoplay=1&html5=1";
             embed.frameBorder = "0";
             embed.src = srcUrl; // Add the youtube src to the iframe
         }
