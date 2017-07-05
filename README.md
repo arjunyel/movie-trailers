@@ -16,7 +16,7 @@ This is project 1 of the [Udacity Full Stack Nanodegree](https://www.udacity.com
 
 1. Make your list of your favorite 20 movies in movies.txt (Limited due to the API)
 
-1. Put your [TMDB API key](https://www.themoviedb.org/documentation/api) into key.py
+1. Put your [TMDb API key](https://www.themoviedb.org/documentation/api) into key.py
 
 ```bash
 tsc # If you have Typescript installed
@@ -53,13 +53,13 @@ Then navigate to [http://locahost:{$PORT}](http://locahost:{$PORT)
 
 ### Web Components
 
-[Web Components](https://www.webcomponents.org/introduction) allow us to create our own custom, reusable, encapsulated HTML tags. In this case we created a movie-card element that go on any website and maintain visual and functional consistency
+[Web Components](https://www.webcomponents.org/introduction) allow us to create our own custom, reusable, encapsulated HTML tags. In this case we created a movie-card element that go on any website and maintain visual and functional consistency.
 
 ```html
 <movie-card title="The Iron Giant" poster="IMAGE_URL" youtube="fq2FZdvQXXg"></movie-card>
 ```
 
-Among other features our movie card has self-contained CSS through [Shadow DOM](https://developers.google.com/web/fundamentals/getting-started/primers/shadowdom), can be used by any framework that manipulates the DOM (such as Angular and React), and its properties can be accessed through Javascript like all other HTML tags
+Among other features our movie card has self-contained CSS through [Shadow DOM](https://developers.google.com/web/fundamentals/getting-started/primers/shadowdom), can be used by any framework that manipulates the DOM (such as Angular and React), and its properties can be accessed through Javascript like all other HTML tags.
 
 ```javascript
 const movies = document.querySelectorAll("movie-card");
@@ -119,4 +119,3 @@ The header of the page, along with the background and text color of the movie ca
 ### The Movie Database API
 
 This product uses the [TMDb API](https://www.themoviedb.org/) but is not endorsed or certified by TMDb.
-
