@@ -138,7 +138,7 @@ def create_movie_tiles_content(movies):
 def open_movies_page(movies):
     """Create index.html"""
     # Create or overwrite the output file
-    output_file = open('./generated/index.html', 'w')
+    output_file = open('../generated/index.html', 'w')
 
     # Replace the movie tiles placeholder generated content
     rendered_content = MAIN_PAGE_CONTENT.format(

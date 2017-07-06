@@ -14,18 +14,20 @@ This is project 1 of the [Udacity Full Stack Nanodegree](https://www.udacity.com
 
 ### Generating Files
 
-1. Make your list of your favorite 20 movies in movies.txt (Limited due to the API)
+1. Make your list of your favorite 20 movies in source/movies.txt (Limited due to the API)
 
-1. Put your [TMDb API key](https://www.themoviedb.org/documentation/api) into key.py
+1. Put your [TMDb API key](https://www.themoviedb.org/documentation/api) into source/key.py
 
 ```bash
 tsc # If you have Typescript installed
+cd source/
 python3 fresh_tomatoes.py
 ```
 
 ### Run with Python
 
 ```bash
+# From base directory
 cd generated/
 python3 -m http.server
 ```
@@ -35,6 +37,7 @@ Go to [http://localhost:8000](http://localhost:8000)
 ### Run with Docker
 
 ```bash
+# From base directory
 cd generated/
 docker build -t movies:latest .
 docker run -d -P movies
