@@ -5,7 +5,7 @@
         "outDir": "generated"
     },
     "files": [
-        "movie-card.ts",
-        "youtube.ts"
+        "./source/movie-card.ts",
+        "./source/youtube.ts"
     ]
 }

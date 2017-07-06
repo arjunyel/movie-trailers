@@ -20,12 +20,14 @@ This is project 1 of the [Udacity Full Stack Nanodegree](https://www.udacity.com
 
 ```bash
 tsc # If you have Typescript installed
+cd source/
 python3 fresh_tomatoes.py
 ```
 
 ### Run with Python
 
 ```bash
+# From base directory
 cd generated/
 python3 -m http.server
 ```
@@ -35,6 +37,7 @@ Go to [http://localhost:8000](http://localhost:8000)
 ### Run with Docker
 
 ```bash
+# From base directory
 cd generated/
 docker build -t movies:latest .
 docker run -d -P movies
